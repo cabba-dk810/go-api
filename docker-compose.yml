@@ -1,0 +1,16 @@
+# DBのみDocker Composeで管理
+version: '3.8'
+services:
+  go-postgres:
+    image: postgres:15.1-alpine
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: go-postgres
+    restart: always
+    networks:
+      - lesson
+networks:
+  lesson:
